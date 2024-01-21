@@ -1,0 +1,26 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: CdAPI
+    network: mumbai
+    source:
+      address: "0x6f7fc0e7474A703563eBc70231Df6B83c837D3ce"
+      abi: CdAPI
+      startBlock: 45002169
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - JobAdded
+      abis:
+        - name: CdAPI
+          file: ./abis/CdAPI.json
+      eventHandlers:
+        - event: JobAdded(indexed uint256,string,string,uint256,uint256,string,string,bool,string,string,string)
+          handler: handleJobAdded
+      file: ./src/cd-api.ts

@@ -1,0 +1,17 @@
+type JobAdded @entity(immutable: true) {
+  id: Bytes!
+  CdAPI_id: BigInt! # uint256
+  title: String! # string
+  company: String! # string
+  min_salary_usd: BigInt! # uint256
+  max_salary_usd: BigInt! # uint256
+  location_iso: String! # string
+  job_type: String! # string
+  degree_required: Boolean! # bool
+  description: String! # string
+  url: String! # string
+  created_at: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
